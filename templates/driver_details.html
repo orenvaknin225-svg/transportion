@@ -1,1 +1,17 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>פרטי נהג</title>
+<style>body{font-family:Arial;max-width:700px;margin:25px auto;padding:15px;background:#f5f5f5;direction:rtl}.box{background:white;padding:18px;border-radius:12px}.btn{background:#222;color:white;border-radius:8px;padding:10px;text-decoration:none;display:inline-block}</style></head>
+<body>
+<a class="btn" href="/drivers">חזרה</a>
+<div class="box">
+<h1>{{ driver.name }}</h1>
+<p>מספר אישי: {{ driver.personal_number }}</p>
+<p>מספר רישיון: {{ driver.license_number }}</p>
+<p>סוג רישיון: {{ driver.license_type }}</p>
+<p>תוקף רישיון: {{ driver.license_expiry or "" }}</p>
+<p>הערות: {{ driver.notes or "" }}</p>
+</div>
+</body>
+</html>
 
