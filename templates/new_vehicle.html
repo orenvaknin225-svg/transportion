@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>רכב חדש</title>
+<style>body{font-family:Arial;max-width:700px;margin:25px auto;padding:15px;background:#f5f5f5;direction:rtl}.box{background:white;padding:18px;border-radius:12px}input,select,textarea,button{width:100%;padding:11px;margin-top:8px;box-sizing:border-box}button,.btn{background:#222;color:white;border:0;border-radius:8px;padding:10px;text-decoration:none}</style></head>
+<body>
+<a class="btn" href="/vehicles">חזרה</a>
+<div class="box">
+<h1>הוספת רכב</h1>
+<form method="POST">
+<input name="plate_number" placeholder="מספר רכב" required>
+<input name="vehicle_type" placeholder="סוג רכב" required>
+<select name="category" required>
+<option value="">בחר קטגוריה</option>
+<option>פרטי</option><option>חקלאי</option><option>נגרר</option><option>משאית</option><option>אחר</option>
+</select>
+<label>תאריך רישוי הבא</label><input type="date" name="license_due">
+<input type="number" name="current_km" placeholder="ק״מ נוכחי">
+<label>תאריך טיפול אחרון</label><input type="date" name="last_service_date">
+<input type="number" name="last_service_km" placeholder="ק״מ בטיפול אחרון"><textarea name="notes" placeholder="הערות"></textarea>
+<button>שמור</button>
+</form>
+</div>
+</body>
+</html>
