@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>רכבים</title>
+<style>
+body{font-family:Arial;max-width:1100px;margin:25px auto;padding:15px;background:#f5f5f5;direction:rtl}
+.box{background:white;padding:18px;border-radius:12px;margin-bottom:16px}
+input,button{padding:10px}
+.btn,button{background:#222;color:white;border:0;border-radius:8px;padding:10px;text-decoration:none}
+table{width:100%;border-collapse:collapse}th,td{border:1px solid #ddd;padding:10px;text-align:center}
+.expired{background:#ffd6d6}.soon{background:#fff1b8}.ok{background:#dff7df}
+</style></head>
+<body>
+<div class="box">
+<h1>רכבים</h1>
+<a class="btn" href="/dashboard">חזרה</a>
+<a class="btn" href="/vehicles/new">הוסף רכב</a>
+<form method="GET"><input name="q" value="{{ q }}" placeholder="חיפוש"><button>חפש</button></form>
+</div>
+<table>
+<tr><th>מספר רכב</th><th>סוג</th><th>קטגוריה</th><th>רישוי הבא</th><th>ק״מ</th><th>פרטים</th></tr>
+{% for v in vehicles %}
+<tr class="{{ expiry_class(v.license_due) }}">
+<td>{{ v.plate_number }}</td><td>{{ v.vehicle_type }}</td><td>{{ v.category }}</td>
+<td>{{ v.license_due or "" }}</td><td>{{ v.current_km }}</td>
+<td><a class="btn" href="/vehicles/{{ v.id }}">פתח</a></td>
+</tr>
+{% endfor %}
+</table>
+</body>
+</html>
