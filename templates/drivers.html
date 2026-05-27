@@ -1,1 +1,23 @@
 
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>נהגים</title>
+<style>body{font-family:Arial;max-width:1100px;margin:25px auto;padding:15px;background:#f5f5f5;direction:rtl}.box{background:white;padding:18px;border-radius:12px;margin-bottom:16px}.btn,button{background:#222;color:white;border:0;border-radius:8px;padding:10px;text-decoration:none}table{width:100%;border-collapse:collapse}th,td{border:1px solid #ddd;padding:10px;text-align:center}.expired{background:#ffd6d6}.soon{background:#fff1b8}.ok{background:#dff7df}</style></head>
+<body>
+<div class="box">
+<h1>נהגים</h1>
+<a class="btn" href="/dashboard">חזרה</a>
+<a class="btn" href="/drivers/new">הוסף נהג</a>
+<form method="GET"><input name="q" value="{{ q }}" placeholder="חיפוש"><button>חפש</button></form>
+</div>
+<table>
+<tr><th>שם</th><th>מספר אישי</th><th>מספר רישיון</th><th>סוג רישיון</th><th>תוקף</th><th>פרטים</th></tr>
+{% for d in drivers %}
+<tr class="{{ expiry_class(d.license_expiry) }}">
+<td>{{ d.name }}</td><td>{{ d.personal_number }}</td><td>{{ d.license_number }}</td><td>{{ d.license_type }}</td><td>{{ d.license_expiry or "" }}</td>
+<td><a class="btn" href="/drivers/{{ d.id }}">פתח</a></td>
+</tr>
+{% endfor %}
+</table>
+</body>
+</html>
