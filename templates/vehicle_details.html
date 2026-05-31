@@ -6,38 +6,41 @@
 <a class="btn" href="/vehicles">חזרה</a>
 <div class="box">
 <h1>רכב {{ vehicle.plate_number }}</h1>
-<p>סוג: {{ vehicle.vehicle_type }}
-</p><p>קטגוריה: {{ vehicle.category }}
-</p><p>רישוי הבא: {{ vehicle.license_due or "" }}
-</p><p>ק״מ נוכחי: {{ vehicle.current_km }}
-</p><p>טיפול אחרון: {{ vehicle.last_service_date or "" }} | ק״מ: {{ vehicle.last_service_km or "" }}
-</p><p>סה״כ עלויות: {{ total_cost }}
-</p>
+<p>סוג: {{ vehicle.vehicle_type }}</p>
+<p>קטגוריה: {{ vehicle.category }}</p>
+<p>רישוי הבא: {{ vehicle.license_due or "" }}</p>
+<p>ק״מ נוכחי: {{ vehicle.current_km }}</p>
+<p>טיפול אחרון: {{ vehicle.last_service_date or "" }} | ק״מ: {{ vehicle.last_service_km or "" }}</p>
+<p>סה״כ עלויות: {{ total_cost }}</p>
 </div>
-  
+
 <div class="box">
 <h2>הוספת טיפול / תיקון</h2>
 <form method="POST">
 <select name="action_type"><option>טיפול</option><option>תיקון</option></select>
-<label>תאריך ביצוע</label>
-<input type="date" name="action_date" required>
+<label>תאריך ביצוע</label><input type="date" name="action_date" required>
 <input type="number" name="km" placeholder="ק״מ בזמן הביצוע">
-<textarea name="description" placeholder="מה בוצע" required></textarea><input name="location" placeholder="איפה בוצע / מוסך / ספק"><input type="number" step="0.01" name="cost" placeholder="עלות"><textarea name="notes" placeholder="הערות"></textarea>
+<textarea name="description" placeholder="מה בוצע" required></textarea>
+<input name="location" placeholder="איפה בוצע / מוסך / ספק">
+<input type="number" step="0.01" name="cost" placeholder="עלות">
+<textarea name="notes" placeholder="הערות"></textarea>
 <button>שמור פעולה</button>
 </form>
 </div>
-  
+
 <div class="box">
 <h2>היסטוריית טיפולים ותיקונים</h2>
 <table>
 <tr><th>תאריך</th><th>סוג</th><th>ק״מ</th><th>מה בוצע</th><th>איפה</th><th>עלות</th><th>הערות</th></tr>
 {% for s in services %}
 <tr>
-<td>{{ s.action_date }}</td>
-<td>{{ s.action_type }}</td><td>{{ s.km or "" }}</td><td>{{ s.description }}</td><td>{{ s.location or "" }}</td><td>{{ s.cost }}</td><td>{{ s.notes or "" }}</td>
+<td>{{ s.action_date }}</td><td>{{ s.action_type }}</td><td>{{ s.km or "" }}</td>
+<td>{{ s.description }}</td><td>{{ s.location or "" }}</td><td>{{ s.cost }}</td><td>{{ s.notes or "" }}</td>
 </tr>
 {% endfor %}
 </table>
 </div>
 </body>
 </html>
+
+נשלח מה-iPhone שלי
