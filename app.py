@@ -229,7 +229,8 @@ def drivers():
     return render_template("drivers.html", drivers=drivers_list, q=q)
 
 
-@app.route("/drivers/new", methods=["GET", "POST"]) def new_driver():
+@app.route("/drivers/new", methods=["GET", "POST"]) 
+def new_driver():
     if not is_admin():
         return redirect(url_for("home"))
 
