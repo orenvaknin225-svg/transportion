@@ -173,7 +173,8 @@ def new_vehicle():
     return render_template("new_vehicle.html")
 
 
-@app.route("/vehicles/<int:vehicle_id>", methods=["GET", "POST"]) def vehicle_detail(vehicle_id):
+@app.route("/vehicles/<int:vehicle_id>", methods=["GET", "POST"]) 
+def vehicle_detail(vehicle_id):
     if not is_admin():
         return redirect(url_for("home"))
 
